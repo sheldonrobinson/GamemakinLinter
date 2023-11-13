@@ -1,7 +1,7 @@
 #include "LintRuleSet.h"
 #include "LintRunner.h"
 
-#include "AssetRegistryModule.h"
+#include "AssetRegistry/AssetRegistryModule.h"
 #include "Modules/ModuleManager.h"
 #include "HAL/RunnableThread.h"
 

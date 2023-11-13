@@ -2,14 +2,15 @@
 
 #include "Runtime/Launch/Resources/Version.h"
 #include "Materials/MaterialInterface.h"
+#include "MaterialDomain.h"
 #include "Materials/Material.h"
 #include "Kismet2/BlueprintEditorUtils.h"
 #include "Engine/Blueprint.h"
-#include "AssetData.h"
+#include "AssetRegistry/AssetData.h"
 #include "Modules/ModuleManager.h"
-#include "IAssetRegistry.h"
+#include "AssetRegistry/IAssetRegistry.h"
 #include "IAssetTools.h"
-#include "AssetRegistryModule.h"
+#include "AssetRegistry/AssetRegistryModule.h"
 
 
 ULintRule::ULintRule(const FObjectInitializer& ObjectInitializer)
@@ -61,11 +62,8 @@ FName ULintRule::GetRuleBasedObjectVariantName_Implementation(UObject* ObjectToL
 		UMaterialInterface* MI = Cast<UMaterialInterface>(ObjectToLint);
 		if (MI != nullptr)
 		{
-#if ENGINE_MINOR_VERSION >= 25
 			TMicRecursionGuard RecursionGuard;
-#else
-			UMaterialInterface::TMicRecursionGuard RecursionGuard;
-#endif
+
 			const UMaterial* Material = MI->GetMaterial_Concurrent(RecursionGuard);
 			if (Material != nullptr)
 			{

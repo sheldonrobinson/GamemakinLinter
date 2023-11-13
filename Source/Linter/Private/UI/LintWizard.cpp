@@ -3,9 +3,10 @@
 
 #include "CoreGlobals.h"
 #include "Delegates/Delegate.h"
-#include "AssetRegistryModule.h"
-#include "IAssetRegistry.h"
-#include "AssetData.h"
+#include "AssetRegistry/AssetRegistryModule.h"
+#include "AssetRegistry/IAssetRegistry.h"
+#include "AssetRegistry/AssetData.h"
+#include "AssetToolsModule.h"
 #include "SlateOptMacros.h"
 #include "Widgets/Layout/SSeparator.h"
 #include "Widgets/Views/SListView.h"
@@ -19,6 +20,7 @@
 #include "FileHelpers.h"
 #include "Logging/MessageLog.h"
 #include "Logging/TokenizedMessage.h"
+#include "Internationalization/Internationalization.h"
 
 #include "LinterStyle.h"
 #include "LintRuleSet.h"
@@ -83,12 +85,12 @@ void SLintWizard::Construct(const FArguments& InArgs)
 				.CancelButtonStyle(FEditorStyle::Get(), "FlatButton.Default")
 				.FinishButtonStyle(FEditorStyle::Get(), "FlatButton.Success")
 				.ButtonTextStyle(FEditorStyle::Get(), "LargeText")
-				.ForegroundColor(FEditorStyle::Get().GetSlateColor("WhiteBrush"))
+				// TODO -  .SetForegroundColor(FEditorStyle::Get().GetSlateColor("WhiteBrush"))
 				.CanFinish(true)
 				.FinishButtonText(LOCTEXT("FinishButtonText", "Close"))
 				.OnFinished_Lambda([&]()
 				{
-					FGlobalTabmanager::Get()->InvokeTab(FName("LinterTab"))->RequestCloseTab();
+					FGlobalTabmanager::Get()->TryInvokeTab(FName("LinterTab"))->RequestCloseTab();
 				})
 				+ SWizard::Page()
 				.CanShow_Lambda([&]() { return RuleSets.Num() > 0; })
@@ -521,7 +523,7 @@ void SLintWizard::Construct(const FArguments& InArgs)
 																		LOCTEXT("ZipTaskShortName", "Zip Project Task"), FEditorStyle::GetBrush(TEXT("MainFrame.CookContent")));
 																}
 
-																FGlobalTabmanager::Get()->InvokeTab(FName("LinterTab"))->RequestCloseTab();
+																FGlobalTabmanager::Get()->TryInvokeTab(FName("LinterTab"))->RequestCloseTab();
 															}
 															return FReply::Handled();
 														})

@@ -7,10 +7,11 @@
 #include "Widgets/Input/SButton.h"
 #include "Styling/SlateStyle.h"
 #include "AssetRegistry/AssetRegistryModule.h"
-#include "IAssetRegistry.h"
-#include "AssetData.h"
+#include "AssetRegistry/IAssetRegistry.h"
+#include "AssetRegistry/AssetData.h"
 #include "ContentBrowserModule.h"
 #include "PropertyEditorModule.h"
+#include "Internationalization/Internationalization.h"
 
 #include "LinterStyle.h"
 #include "LinterContentBrowserExtensions.h"

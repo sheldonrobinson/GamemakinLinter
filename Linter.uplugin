@@ -1,16 +1,12 @@
 {
 	"FileVersion": 3,
 	"Version": 10,
-	"VersionName": "2.3",
+	"VersionName": "2.4",
 	"FriendlyName": "Linter",
-	"Description": "",
+	"Description": "Linter upgraded to support Unreal Engine 5.0+ based on Gamemakin Linker by Michael Allar",
 	"Category": "Other",
-	"CreatedBy": "Michael Allar",
-	"CreatedByURL": "https://gamemak.in",
-	"DocsURL": "http://discord.gamemak.in",
-	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/ca0639af6339476da86fa3bcf15de8ec",
-	"SupportURL": "http://discord.gamemak.in",
-	"EngineVersion": "4.26.0",
+	"CreatedBy": "Sheldon Robinson",
+	"EngineVersion": "5.0",
 	"CanContainContent": true,
 	"Installed": true,
 	"Modules": [
@@ -20,7 +16,6 @@
 			"LoadingPhase": "PreDefault",
 			"WhitelistPlatforms": [
 				"Win64",
-				"Win32",
 				"Mac",
 				"Linux"
 			],
@@ -35,7 +30,6 @@
 			"LoadingPhase": "PreDefault",
 			"WhitelistPlatforms": [
 				"Win64",
-				"Win32",
 				"Mac",
 				"Linux"
 			],
@@ -50,7 +44,6 @@
 			"LoadingPhase": "PreDefault",
 			"WhitelistPlatforms": [
 				"Win64",
-				"Win32",
 				"Mac",
 				"Linux"
 			],
