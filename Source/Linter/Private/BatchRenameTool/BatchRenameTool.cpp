@@ -15,6 +15,7 @@
 #include "Framework/Notifications/NotificationManager.h"
 #include "Logging/MessageLog.h"
 #include "Logging/TokenizedMessage.h"
+#include "Internationalization/Internationalization.h"
 
 #define LOCTEXT_NAMESPACE "LinterBatchRenamer"
 

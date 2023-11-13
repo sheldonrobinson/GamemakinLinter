@@ -4,7 +4,7 @@
 #include "CoreMinimal.h"
 #include "HAL/ThreadSafeCounter.h"
 #include "HAL/Runnable.h"
-#include "AssetData.h"
+#include "AssetRegistry/AssetData.h"
 #include "Linter.h"
 
 class FLintRunner : public FRunnable
